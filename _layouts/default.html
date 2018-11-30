@@ -134,13 +134,14 @@ input[type=number]:hover {
 			return;
 		}
 		alert("email doc: " + DB.collection("testers").doc(email));
-	    	if(!DB.collection("testers").doc(email) == null){
+		db.collection('testers').doc(email).get()
+  		  .then((user) => {
+	    	  if(!user.exists()){
 			document.getElementById("errorline").innerHTML = "\"" + email + "\" is geen goed emailadres";
 			return;
-		}
-		document.getElementById("errorline").innerHTML = "";
-		var code = generateCode();
-		sendCodeEmail(code, email);
+		  }
+		});
+		document.getElementById("errorline").innerHTML = "yes yes";
 	}
 	  
 	function sendCodeEmail(code, email){
