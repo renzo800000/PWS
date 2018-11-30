@@ -72,12 +72,12 @@ input[type=number]:hover {
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCU1H-HRa2cqU3YXamRle38vS5Pnmwz5Do",
-    authDomain: "calendar-snooze.firebaseapp.com",
-    databaseURL: "https://calendar-snooze.firebaseio.com",
-    projectId: "calendar-snooze",
-    storageBucket: "calendar-snooze.appspot.com",
-    messagingSenderId: "889864041127"
+    apiKey: "AIzaSyBwLQhf9HjUstY0WtHvpbAgIH_vcLnuTV0",
+    authDomain: "pws-dextro-energy.firebaseapp.com",
+    databaseURL: "https://pws-dextro-energy.firebaseio.com",
+    projectId: "pws-dextro-energy",
+    storageBucket: "pws-dextro-energy.appspot.com",
+    messagingSenderId: "689975896703"
   };
   firebase.initializeApp(config);
   var DB = firebase.firestore();
@@ -119,21 +119,6 @@ input[type=number]:hover {
 	  }
 	}
 	  
-	function sendRequest(email){
-	  var host = window.location.hostname;
-		DB.collection("data").doc("conversionWebInterface").collection("conversions").doc(email).set({
-		  host: host,
-		  locale: "en_US"
-		}).then(function() {
-    			console.log("Request successfully sent!");
-			window.location.href = "?sent=true"
-		})
-		.catch(function(error) {
-    			console.error("Error sending request: ", error);
-			document.getElementById("errorline").innerHTML = "Failed to send request.";
-		});
-	}
-	  
 	function limitCharacterCount(numOfCharacters){	
           var value = document.getElementById("codeField").value;
           if (value.length > 6) {
@@ -145,11 +130,12 @@ input[type=number]:hover {
       	function verifyEmail(){
 	    	var email = document.getElementById("emailField").value;
 		if(email == ""){
-			document.getElementById("errorline").innerHTML = "Please enter an email address";
+			document.getElementById("errorline").innerHTML = "Vul alstublieft een emailadres in.";
 			return;
 		}
-	    	if(!validateEmail(email)){
-			document.getElementById("errorline").innerHTML = "\"" + email + "\" is not a valid email address.";
+		alert("email doc: " + DB.collection("testers").doc(email));
+	    	if(!DB.collection("testers").doc(email) == null){
+			document.getElementById("errorline").innerHTML = "\"" + email + "\" is geen goed emailadres";
 			return;
 		}
 		document.getElementById("errorline").innerHTML = "";
