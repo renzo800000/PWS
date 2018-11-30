@@ -133,7 +133,6 @@ input[type=number]:hover {
 			document.getElementById("errorline").innerHTML = "Vul alstublieft een emailadres in.";
 			return;
 		}
-		alert("email doc: " + DB.collection("testers").doc(email));
 		db.collection('testers').doc(email).get()
   		  .then((user) => {
 	    	  if(!user.exists()){
