@@ -2,7 +2,7 @@
 
 <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
 <title>PWS Dextro Energy</title>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: "nl-NL" }}">
   <head>
     <meta charset="UTF-8">
 <style> 
@@ -135,9 +135,12 @@ input[type=number]:hover {
 		}
 		db.collection('testers').doc(email).get()
   		  .then((user) => {
+			user.
 	    	  if(!user.exists()){
 			document.getElementById("errorline").innerHTML = "Dit emailadres is niet bij ons aangemeld.";
 			return;
+		  }else{
+			document.getElementById("errorline").innerHTML = "Dit emailadres is bij ons aangemeld.";
 		  }
 		});
 		document.getElementById("errorline").innerHTML = "yes yes";
