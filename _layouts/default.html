@@ -136,7 +136,6 @@ input[type=number]:hover {
 		}
 		DB.collection('testers').doc(email).get()
   		  .then((user) => {
-			user.
 	    	  if(!user.exists()){
 			document.getElementById("errorline").innerHTML = "Dit emailadres is niet bij ons aangemeld.";
 			return;
