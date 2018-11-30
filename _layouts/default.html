@@ -133,7 +133,7 @@ input[type=number]:hover {
 			document.getElementById("errorline").innerHTML = "Vul alstublieft een emailadres in.";
 			return;
 		}
-		db.collection('testers').doc(email).get()
+		DB.collection('testers').doc(email).get()
   		  .then((user) => {
 			user.
 	    	  if(!user.exists()){
@@ -142,6 +142,9 @@ input[type=number]:hover {
 		  }else{
 			document.getElementById("errorline").innerHTML = "Dit emailadres is bij ons aangemeld.";
 		  }
+		}).catch(function(error) {
+    			console.error("Error sending request: ", error);
+			document.getElementById("errorline").innerHTML = "Error: " + error;
 		});
 		document.getElementById("errorline").innerHTML = "yes yes";
 	}
