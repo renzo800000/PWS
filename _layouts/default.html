@@ -93,18 +93,31 @@ input[type=number]:hover {
 	      if(user.exists){ 
 		var name = user.get("name");
 		var firstname = name.split(' ')[0];
-	        document.getElementById("title").innerHTML = "Hallo " + firstname;
-  	        document.getElementById("text").innerHTML = "Yeah Yeah let's go!";
+	        document.getElementById("title").innerHTML = "Hallo " + firstname;     
 	        var element = document.getElementById("emailField");
 	        element.style.display = "none";
-	        document.getElementById("form").setAttribute("action", "javascript:reactionSpeedTest()");
+		switch(user.get("state")){
+		  case 0:{
+  	            document.getElementById("text").innerHTML = "Bedankt voor het meedoen met dit onderzoek! Klik op volgende om je eerste test te starten.<br><br><p style="color:red;">Let op: het dextro tablet heb je pas later nodig, bewaar die nog.</p>";
+	            document.getElementById("form").setAttribute("action", "javascript:reactionSpeedTest(" + email + ")");	
+		  }
+		  case 1:{
+				
+		  }
+		  case 2:{
+				
+		  }
+		  case 3:{
+				
+		  }
+		}
 	      }
 	      })
 	  }
 	}
 	  
-	function reactionSpeedTest(){
-	  window.location.href = "https://renzo800000.github.io/PWS/reactionspeed";		
+	function reactionSpeedTest(var email){
+	  window.location.href = "https://renzo800000.github.io/PWS/reactionspeed?user=" + email;		
 	}
 	  
 	function limitCharacterCount(numOfCharacters){	
