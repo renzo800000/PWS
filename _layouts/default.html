@@ -115,8 +115,12 @@ input[type=number]:hover {
 	      }
 	      });
 	  }
+	  setinterval(showDynamicContent, 100);
+	}
+	  
+	function showDynamicContent(){
 	  var container = document.getElementById("dynamic-content");
-	  container.removeAttribute("hidden");
+	  container.removeAttribute("hidden");	
 	}
 	  
 	function reactionSpeedTest(email){
