@@ -91,7 +91,7 @@ input[type=number]:hover {
 	  if(email != null){
 	      DB.collection('testers').doc(email).get().then((user) => {
 	      if(user.exists){ 
-		var name = user.getString("name");
+		var name = user.get("name");
 		var firstname = name.split(' ')[0];
 	        document.getElementById("title").innerHTML = "Hallo " + firstname;
   	        document.getElementById("text").innerHTML = "Yeah Yeah let's go!";
