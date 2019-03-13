@@ -115,10 +115,6 @@ input[type=number]:hover {
 	      }
 	      });
 	  }
-	  setTimeout(showDynamicContent, 200);
-	}
-	  
-	function showDynamicContent(){
 	  var container = document.getElementById("dynamic-content");
 	  container.removeAttribute("style");	
 	}
@@ -174,7 +170,7 @@ input[type=number]:hover {
     </header>
 
     <main id="content" class="main-content" role="main">
-      <div id="dynamic-content" style="visibility:hidden">
+      <div id="dynamic-content" style="opacity:0">
         <h2 id="title">Vul uw Emailadres in</h2>
         <p id="text">Vul alstublieft uw Emailadres in in het veld hieronder.</p>
         <p id="errorline" style="color:red"/>
