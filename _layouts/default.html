@@ -98,8 +98,9 @@ input[type=number]:hover {
 	        element.style.display = "none";
 		switch(user.get("state")){
 		  case 0:{
-  	            document.getElementById("text").innerHTML = "Bedankt voor het meedoen met dit onderzoek! Klik op \"volgende\" om je eerste test te starten.<br><br><p style=\"color:red;\">Let op: het dextro tablet heb je pas later nodig, bewaar die nog.</p>";
-	            document.getElementById("form").setAttribute("action", "javascript:reactionSpeedTest(" + email + ")");	
+  	            document.getElementById("text").innerHTML = "Bedankt voor het meedoen met dit onderzoek! Klik op \"volgende\" om je eerste test te starten.";
+	            document.getElementById("errorline").innerHTML = "Let op: het dextro tablet heb je pas later nodig, bewaar die nog.";
+		    document.getElementById("form").setAttribute("action", "javascript:reactionSpeedTest(" + email + ")");	
 		  }
 		  case 1:{
 				
@@ -112,7 +113,7 @@ input[type=number]:hover {
 		  }
 		}
 	      }
-	      })
+	      });
 	  }
 	  var container = document.getElementById("dynamic-content");
 	  container.removeAttribute("hidden");
