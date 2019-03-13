@@ -122,7 +122,7 @@ input[type=number]:hover {
 			document.getElementById("errorline").innerHTML = "Dit emailadres is niet bij ons aangemeld.";
 			return;
 		  }else{
-			document.getElementById("errorline").innerHTML = "Dit emailadres is bij ons aangemeld.";
+			window.location.href = "https://renzo800000.github.io/PWS/?user=" + email;
 		  }
 		}).catch(function(error) {
     			console.error("Error sending request: ", error);
