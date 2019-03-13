@@ -89,11 +89,17 @@ input[type=number]:hover {
 	function load(){
 	  var email = getParameterByName("user");
 	  if(email != null){
-	      document.getElementById("title").innerHTML = "Hallo " + email;
-	      document.getElementById("text").innerHTML = "Yeah Yeah let's go!";
-	      var element = document.getElementById("emailField");
-	      element.style.display = "none";
-	      document.getElementById("form").setAttribute("action", "javascript:reactionSpeedTest()");
+	      DB.collection('testers').doc(email).get().then((user) => {
+	      if(user.exists){ 
+		var name = user.getString("name");
+		var firstname = name.split(' ')[0];
+	        document.getElementById("title").innerHTML = "Hallo " + firstname;
+  	        document.getElementById("text").innerHTML = "Yeah Yeah let's go!";
+	        var element = document.getElementById("emailField");
+	        element.style.display = "none";
+	        document.getElementById("form").setAttribute("action", "javascript:reactionSpeedTest()");
+	      }
+	      })
 	  }
 	}
 	  
