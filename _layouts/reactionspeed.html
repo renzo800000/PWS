@@ -107,7 +107,8 @@ input[type=number]:hover {
 	}
 	  
       	function start(){
-		alert("start test");
+					document.getElementById("contentHider").setAttribute("hidden", "");
+					document.getElementById("colorDiv").setAttribute("style", "background-color:RED");
 		/*
 	    	var email = document.getElementById("emailField").value;
 		if(email == ""){
@@ -136,6 +137,8 @@ input[type=number]:hover {
 	
 	
   <body onload="load()">
+    <div id="colorDiv">
+    <div id="contentHider">
     <header class="page-header" role="banner">
       <h1 id="header" class="project-name">PWS Dextro Energy</h1>
     </header>
@@ -158,5 +161,7 @@ input[type=number]:hover {
         <span class="site-footer-credits">Dr. J.J. van Soest</span>
       </footer>
     </main>
+    </div>
+    </div>
   </body>
 </html>
