@@ -125,21 +125,13 @@ input[type=number]:hover {
   	function start(){
 	  document.getElementById("contentHider").setAttribute("hidden", "");
 	  document.getElementById("colorDiv").setAttribute("class", "redScreen");
-	  setTimeout(alertReactionSpeed, getRndInteger(1000, 5000));
-	}
-		       
-	function alertReactionSpeed(){
-	  alert(measureReactionSpeed());    
+	  setTimeout(measureReactionSpeed, getRndInteger(1000, 5000));
 	}
 		
 	function measureReactionSpeed(){
 	  document.getElementById("colorDiv").setAttribute("class", "greenScreen");
 	  var reactionTime = 0;
 	  var start = (new Date).getTime();
-	  while((new Date).getTime()-start<1000 || reactionTime <= 0){
-	    if(reactionTime <= 0)return -1;
-	    else return reactionTime;
-	  }
 	}
 	  
 	function click(){
@@ -148,6 +140,9 @@ input[type=number]:hover {
 	    var reactionTime = now - start;
 	    alert(reactionTime);
 	    start = 0;
+	    document.getElementById("colorDiv").setAttribute("class", "redScreen");
+	  }else{
+	    alert("NO");	  
 	  }
 	}
 	  
