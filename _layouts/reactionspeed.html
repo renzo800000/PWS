@@ -125,13 +125,11 @@ input[type=number]:hover {
   	function start(){
 	  document.getElementById("contentHider").setAttribute("hidden", "");
 	  document.getElementById("colorDiv").setAttribute("class", "redScreen");
-	  while(true){
-	    setTimeout(alertReactionSpeed, getRndInteger(1000, 5000));
-	  }
+	  setTimeout(alertReactionSpeed, getRndInteger(1000, 5000));
 	}
 		       
 	function alertReactionSpeed(){
-	  alert(measureReactionSpeed());	    
+	  alert(measureReactionSpeed());    
 	}
 		
 	function measureReactionSpeed(){
