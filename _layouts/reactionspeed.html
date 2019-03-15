@@ -127,19 +127,21 @@ input[type=number]:hover {
 	  document.getElementById("colorDiv").setAttribute("class", "redScreen");
 	  setTimeout(measureReactionSpeed, getRndInteger(1000, 5000));
 	}
+	  
+	var startTime = 0;
 		
 	function measureReactionSpeed(){
 	  document.getElementById("colorDiv").setAttribute("class", "greenScreen");
 	  var reactionTime = 0;
-	  var start = (new Date).getTime();
+	  startTime = (new Date).getTime();
 	}
 	  
 	function reaction(){
-	  if(start > 0){
+	  if(startTime > 0){
 	    var now = (new Date).getTime();
-	    var reactionTime = now - start;
+	    var reactionTime = now - startTime;
 	    alert(reactionTime);
-	    start = 0;
+	    startTime = 0;
 	    document.getElementById("colorDiv").setAttribute("class", "redScreen");
 	  }
 	}
