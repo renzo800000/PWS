@@ -91,18 +91,12 @@ input[type=number]:hover {
 	  var valid = false;
 	  if(email != null){
 	      DB.collection('testers').doc(email).get().then((user) => {
-	        if(user.exists){ 
-		  valid = true;
-	        }else{
-		  alert("account does not exist");	
+	        if(!user.exists){ 
+	    	  window.location.href = "https://renzo800000.github.io/PWS";
 		}
 	      });
 	  }else{
-	    alert("no account mentioned");	  
-	  }
-	  if(!valid){
-	    //window.location.href = "https://renzo800000.github.io/PWS";
-	    return;
+	    window.location.href = "https://renzo800000.github.io/PWS";	  
 	  }
 	  setTimeout(displayDynamicContent, 500);
 	}
