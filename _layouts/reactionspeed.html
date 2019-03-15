@@ -6,6 +6,22 @@
   <head>
     <meta charset="UTF-8">
 <style> 
+html, body{
+	height: 100%;
+	margin: 0px;
+}
+.redScreen{ 
+	background: red;
+	height: 100%;
+	width: 100%;
+}
+	
+.greenScreen{
+	background: green;
+	height: 100%;
+	width: 100%;
+}
+	
 input[type=email] {
     padding: 6px 10px;
     margin: 8px 0;
@@ -106,27 +122,19 @@ input[type=number]:hover {
 	  container.removeAttribute("style");		
 	}
 	  
-      	function start(){
-					document.getElementById("contentHider").setAttribute("hidden", "");
-					document.getElementById("colorDiv").setAttribute("style", "background-color:RED");
-		/*
-	    	var email = document.getElementById("emailField").value;
-		if(email == ""){
-			document.getElementById("errorline").innerHTML = "Vul alstublieft een emailadres in.";
-			return;
-		}
-		DB.collection('testers').doc(email).get()
-  		  .then((user) => {
-	    	  if(!user.exists){
-			document.getElementById("errorline").innerHTML = "Dit emailadres is niet bij ons aangemeld.";
-			return;
-		  }else{
-			window.location.href = "https://renzo800000.github.io/PWS?user=" + email;
-		  }
-		}).catch(function(error) {
-    			console.error("Error sending request: ", error);
-			document.getElementById("errorline").innerHTML = "Error: " + error;
-		});*/
+  function start(){
+		document.getElementById("contentHider").setAttribute("hidden", "");
+		redScreen();
+	}
+		
+	function redScreen(){
+	  document.getElementById("colorDiv").setAttribute("class", "redScreen");
+		setTimeout(greenScreen, 1000);
+	}
+		
+	function greenScreen(){
+	  document.getElementById("colorDiv").setAttribute("class", "greenScreen");
+		setTimeout(redScreen, 1000);
 	}
 	  
 	function getParameterByName(name){
