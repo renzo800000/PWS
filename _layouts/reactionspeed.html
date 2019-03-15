@@ -122,30 +122,50 @@ input[type=number]:hover {
 	  container.removeAttribute("style");		
 	}
 	  
-  function start(){
-		document.getElementById("contentHider").setAttribute("hidden", "");
-		redScreen();
-	}
-		
-	function redScreen(){
+  	function start(){
+	  document.getElementById("contentHider").setAttribute("hidden", "");
 	  document.getElementById("colorDiv").setAttribute("class", "redScreen");
-		setTimeout(greenScreen, 1000);
+	  while(true){
+	    setTimeout(alertReactionSpeed, getRndInteger(1000, 5000));
+	  }
+	}
+		       
+	function alertReactionSpeed(){
+	  alert(measureReactionSpeed());	    
 	}
 		
-	function greenScreen(){
+	function measureReactionSpeed(){
 	  document.getElementById("colorDiv").setAttribute("class", "greenScreen");
-		setTimeout(redScreen, 1000);
+	  var reactionTime = 0;
+	  var start = (new Date).getTime();
+	  while((new Date).getTime()-start<1000 || reactionTime <= 0){
+	    if(reactionTime <= 0)return -1;
+	    else return reactionTime;
+	  }
+	}
+	  
+	function click(){
+	  if(start > 0){
+	    var now = (new Date).getTime();
+	    var reactionTime = now - start;
+	    alert(reactionTime);
+	    start = 0;
+	  }
 	}
 	  
 	function getParameterByName(name){
           var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
           return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
         }
+		  
+        function getRndInteger(min, max) {
+          return Math.floor(Math.random() * (max - min) ) + min;
+        }
   </script>
 	
 	
   <body onload="load()">
-    <div id="colorDiv">
+    <div id="colorDiv" onClick="javascript:click()">
     <div id="contentHider">
     <header class="page-header" role="banner">
       <h1 id="header" class="project-name">PWS Dextro Energy</h1>
