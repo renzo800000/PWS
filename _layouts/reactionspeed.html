@@ -93,8 +93,12 @@ input[type=number]:hover {
 	      DB.collection('testers').doc(email).get().then((user) => {
 	        if(user.exists){ 
 		  valid = true;
-	        }
+	        }else{
+		  alert("account does not exist");	
+		}
 	      });
+	  }else{
+	    alert("no account mentioned");	  
 	  }
 	  if(!valid){
 	    window.location.href = "https://renzo800000.github.io/PWS";
